@@ -162,3 +162,26 @@ aside .sidebar {
 aside h3 {
   font-weight: 500;
 }
+aside .sidebar a {
+  color: var(--clr-info-dark);
+
+  display: flex;
+  margin-left: 2rem;
+  margin-bottom: 5rem;
+  gap: 1rem;
+  align-items: center;
+  position: relative;
+  height: 3, 7rem;
+  transition: var(--transition);
+}
+
+aside .sidebar a span {
+  font-size: 1.6rem;
+  transition: var(--transition);
+}
+
+aside .sidebar a:last-child {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+}
