@@ -4,7 +4,6 @@ const Dashboard = () => {
       <aside>
         <div className='top'>
           <div className='logo'>
-            <img src='./react.svg' alt='' />
             <h2>
               Maisa<span className='primary'>rah</span>
             </h2>
@@ -20,13 +19,21 @@ const Dashboard = () => {
             <h3>dashboard</h3>
           </a>
           <a href='#'>
-            <span className='material-icons-sharp'></span>
-            <h3>tasks</h3>
-          </a>
-          <a href='#'>
             <span className='material-icons-sharp'>mail_outline</span>
             <h3>messages</h3>
             <span className='message-count'>20</span>
+          </a>
+          <a href='#'>
+            <span className='material-icons-sharp'>cases</span>
+            <h3>appointments</h3>
+          </a>
+          <a href='#'>
+            <span className='material-icons-sharp'>logout</span>
+            <h3>resources</h3>
+          </a>
+          <a href='#'>
+            <span className='material-icons-sharp'>logout</span>
+            <h3>logout</h3>
           </a>
           <a href='#'>
             <span className='material-icons-sharp'>inventory</span>
