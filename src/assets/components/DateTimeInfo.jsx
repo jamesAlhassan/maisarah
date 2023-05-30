@@ -1,4 +1,5 @@
 import userData from "../userData";
+import styled from "styled-components";
 import { GoRepo, GoGist } from "react-icons/go";
 import { FiUsers, FiUserPlus } from "react-icons/fi";
 
@@ -35,6 +36,14 @@ const DateTimeInfo = () => {
       color: "yellow",
     },
   ];
-  return <div>DateTimeInfo</div>;
+  return (
+    <section className='section'>
+      <Wrapper className='section-center'>
+        {items.map((item) => {
+          return <p>item</p>;
+        })}
+      </Wrapper>
+    </section>
+  );
 };
 export default DateTimeInfo;
