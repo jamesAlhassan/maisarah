@@ -97,3 +97,38 @@ h4 {
 small {
   font-size: 0.75rem;
 }
+
+.container {
+  display: grid;
+  width: 96%;
+  margin: 0 auto;
+  gap: 1.8rem;
+  grid-template-columns: 14rem auto 23rem;
+}
+.text-muted {
+  color: var(--clr-info-dark);
+}
+p {
+  color: var(--clr-dark-variant);
+}
+b {
+  color: var(--clr-dark);
+}
+.primary {
+  color: var(--clr-primary);
+}
+
+.danger {
+  color: var(--clr-danger);
+}
+.success {
+  color: var(--clr-success);
+}
+
+.warning {
+  color: var(--clr-warning);
+}
+
+aside {
+  height: 100vh;
+}
