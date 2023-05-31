@@ -3,7 +3,9 @@ const PixelaLog = () => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
-    const newUser = Object.fromEntries(formData);
+    const user = Object.fromEntries(formData);
+    const { name, email, passwrod } = user;
+    console.log(name);
     e.currentTarget.reset();
   };
 
