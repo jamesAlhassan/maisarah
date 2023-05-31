@@ -10,7 +10,7 @@ const PixelaLog = () => {
   return (
     <div>
       <form className='form' onSubmit={handleSubmit}>
-        <h4>pixela data log</h4>
+        <h2>pixela data log</h2>
         {/* name */}
         <div className='form-row'>
           <label htmlFor='name' className='form-label'>
