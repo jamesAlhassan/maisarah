@@ -1,14 +1,14 @@
 import DateTimeInfo from "./DateTimeInfo";
 import ChartComponent from "./ChartComponent";
+import PixelaLog from "./PixelaLog";
 import styled from "styled-components";
 const Dashboard = () => {
   return (
     <div>
       <DateTimeInfo />
+      <PixelaLog />
       <section className='section'>
-        <Wrapper className='section-center'>
-          <ChartComponent />
-        </Wrapper>
+        <Wrapper className='section-center'>{/* <ChartComponent /> */}</Wrapper>
       </section>
     </div>
   );
