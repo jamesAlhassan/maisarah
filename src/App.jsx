@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./assets/components/Dashboard";
 import Login from "./assets/components/Login";
 import Error from "./assets/components/Error";
+
 import "./App.css";
 
 const App = () => {
