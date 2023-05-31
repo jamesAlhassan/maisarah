@@ -1,36 +1,57 @@
 import userData from "../userData";
 import styled from "styled-components";
-import { GoRepo, GoGist } from "react-icons/go";
+import { GoCalendar } from "react-icons/go";
 import { FiUsers, FiUserPlus } from "react-icons/fi";
+import {
+  BsFillCalendar2MonthFill,
+  BsFillCalendarDayFill,
+} from "react-icons/bs";
 
 const DateTimeInfo = () => {
   const { public_repos, followers, following, public_gists } = userData;
-
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const current = new Date();
+  const year = `${current.getFullYear()}`;
+  const date = `${current.getDate()}st`;
+  const month = monthNames[current.getMonth()];
   const items = [
     {
       id: 1,
-      icon: <GoRepo className='icon' />,
-      label: "repos",
-      value: public_repos,
+      icon: <BsFillCalendarDayFill className='icon' />,
+      label: "Date",
+      value: date,
       color: "pink",
     },
     {
       id: 2,
-      icon: <FiUsers className='icon' />,
-      label: "followers",
-      value: followers,
+      icon: <BsFillCalendar2MonthFill className='icon' />,
+      label: "month",
+      value: month,
       color: "green",
     },
     {
       id: 3,
-      icon: <FiUserPlus className='icon' />,
-      label: "following",
-      value: following,
+      icon: <GoCalendar className='icon' />,
+      label: "year",
+      value: year,
       color: "purple",
     },
     {
       id: 4,
-      icon: <GoGist className='icon' />,
+      icon: <FiUserPlus className='icon' />,
       label: "gists",
       value: public_gists,
       color: "yellow",

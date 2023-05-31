@@ -55,7 +55,7 @@ const chartData = [
 
 // STEP 3 - Creating the JSON object to store the chart configurations
 const chartConfigs = {
-  type: "column2d", // The chart type
+  type: "bar3d", // The chart type
   width: "700", // Width of the chart
   height: "400", // Height of the chart
   dataFormat: "json", // Data type
