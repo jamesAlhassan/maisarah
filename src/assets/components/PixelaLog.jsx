@@ -1,9 +1,16 @@
-
 const PixelaLog = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const newUser = Object.fromEntries(formData);
+    e.currentTarget.reset();
+  };
+
   return (
-<div>
-    <form className='form' onSubmit={handleSubmit}>
-        <h4>Form Data API</h4>
+    <div>
+      <form className='form' onSubmit={handleSubmit}>
+        <h4>pixela data log</h4>
         {/* name */}
         <div className='form-row'>
           <label htmlFor='name' className='form-label'>
@@ -29,7 +36,13 @@ const PixelaLog = () => {
             id='password'
             name='password'
           />
-</div>
-  )
+        </div>
+
+        <button type='submit' className='btn btn-block'>
+          submit
+        </button>
+      </form>
+    </div>
+  );
 };
 export default PixelaLog;
