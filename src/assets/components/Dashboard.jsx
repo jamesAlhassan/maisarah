@@ -6,9 +6,11 @@ const Dashboard = () => {
   return (
     <div>
       <DateTimeInfo />
-      <PixelaLog />
+
       <section className='section'>
-        <Wrapper className='section-center'>{/* <ChartComponent /> */}</Wrapper>
+        <Wrapper className='section-center'>
+          <PixelaLog />
+        </Wrapper>
       </section>
     </div>
   );
