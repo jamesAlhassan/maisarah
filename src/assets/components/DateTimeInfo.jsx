@@ -1,14 +1,11 @@
-import userData from "../userData";
 import styled from "styled-components";
 import { GoCalendar } from "react-icons/go";
-import { FiUsers, FiUserPlus } from "react-icons/fi";
 import {
   BsFillCalendar2MonthFill,
   BsFillCalendarDayFill,
 } from "react-icons/bs";
 
 const DateTimeInfo = () => {
-  const { public_repos, followers, following, public_gists } = userData;
   const monthNames = [
     "January",
     "February",
@@ -51,7 +48,7 @@ const DateTimeInfo = () => {
     },
     {
       id: 4,
-      icon: <FiUserPlus className='icon' />,
+      icon: <GoCalendar className='icon' />,
       label: "gists",
       value: public_gists,
       color: "yellow",
