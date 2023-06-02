@@ -5,15 +5,13 @@ import App from "./App.jsx";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Auth0Provider
-      domain={import.meta.env.VITE_DOMAIN}
-      clientId={import.meta.env.VITE_DOMAIN}
-      authorizationParams={{
-        redirect_uri: window.location.origin,
-      }}
-    >
+  <Auth0Provider
+    domain={import.meta.env.VITE_DOMAIN}
+    clientId={import.meta.env.VITE_CLIENT}
+    redirectUri={window.location.origin}
+  >
+    <React.StrictMode>
       <App />
-    </Auth0Provider>
-  </React.StrictMode>
+    </React.StrictMode>
+  </Auth0Provider>
 );
