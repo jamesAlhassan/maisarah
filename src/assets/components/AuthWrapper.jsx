@@ -19,6 +19,6 @@ const AuthWrapper = ({ children }) => {
     );
   }
 
-  return <div>AuthWrapper</div>;
+  return <>{children}</>;
 };
 export default AuthWrapper;
