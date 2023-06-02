@@ -50,7 +50,7 @@ const DateTimeInfo = () => {
       id: 4,
       icon: <GoCalendar className='icon' />,
       label: "gists",
-      value: public_gists,
+      value: year,
       color: "yellow",
     },
   ];
