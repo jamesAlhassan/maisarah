@@ -28,7 +28,7 @@ const PixelaLog = () => {
               className='form-input'
               id='name'
               name='name'
-              value={user.name}
+              value={user.nickname}
             />
           </div>
 
@@ -70,7 +70,13 @@ const PixelaLog = () => {
             <label htmlFor='name' className='form-label'>
               identity
             </label>
-            <input type='text' className='form-input' id='name' name='name' />
+            <input
+              type='text'
+              className='form-input'
+              id='name'
+              name='name'
+              value={user.nickname}
+            />
           </div>
           <div className='form-row'>
             <label htmlFor='token' className='form-label'>
