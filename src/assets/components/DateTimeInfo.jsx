@@ -22,7 +22,22 @@ const DateTimeInfo = () => {
   ];
   const current = new Date();
   const year = `${current.getFullYear()}`;
-  const date = `${current.getDate()}st`;
+  const nthNumber = (number) => {
+    if (number > 3 && number < 21) return "th";
+    switch (number % 10) {
+      case 1:
+        return "st";
+      case 2:
+        return "nd";
+      case 3:
+        return "rd";
+      default:
+        return "th";
+    }
+  };
+  const day = current.getDate();
+  const date = `${day}${nthNumber(day)}`;
+
   const month = monthNames[current.getMonth()];
   const items = [
     {
