@@ -9,6 +9,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     domain={import.meta.env.VITE_DOMAIN}
     clientId={import.meta.env.VITE_CLIENT}
     redirectUri={window.location.origin}
+    cacheLocation='localstorage'
   >
     <React.StrictMode>
       <App />
