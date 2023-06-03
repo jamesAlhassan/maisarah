@@ -8,8 +8,8 @@ const PixelaLog = () => {
 
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData);
-    const { name, email, password } = user;
-    console.log(name);
+    const { token, identity } = user;
+    console.log(token, identity);
     e.currentTarget.reset();
   };
 
