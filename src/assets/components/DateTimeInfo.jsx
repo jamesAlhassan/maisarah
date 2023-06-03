@@ -3,6 +3,7 @@ import { GoCalendar } from "react-icons/go";
 import {
   BsFillCalendar2MonthFill,
   BsFillCalendarDayFill,
+  BsFillClockFill,
 } from "react-icons/bs";
 
 const DateTimeInfo = () => {
@@ -68,7 +69,7 @@ const DateTimeInfo = () => {
     },
     {
       id: 4,
-      icon: <GoCalendar className='icon' />,
+      icon: <BsFillClockFill className='icon' />,
       label: "login @",
       value: time,
       color: "yellow",
