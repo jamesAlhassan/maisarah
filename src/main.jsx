@@ -8,7 +8,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <Auth0Provider
     domain={import.meta.env.VITE_DOMAIN}
     clientId={import.meta.env.VITE_CLIENT}
-    redirectUri={window.location.origin}
+    // redirectUri={window.location.origin}
+    authorizationParams={{
+      redirect_uri: window.location.origin,
+    }}
     cacheLocation='localstorage'
   >
     <React.StrictMode>
