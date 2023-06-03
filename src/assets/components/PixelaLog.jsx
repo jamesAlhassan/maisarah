@@ -1,5 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
-
+const { user } = useAuth0();
+const nickname = user.nickname;
 const PixelaLog = () => {
   const { user } = useAuth0();
 
@@ -111,4 +112,4 @@ const PixelaLog = () => {
     </div>
   );
 };
-export default PixelaLog;
+export { PixelaLog, nickname };
