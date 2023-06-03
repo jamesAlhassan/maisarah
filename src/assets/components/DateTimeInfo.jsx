@@ -37,7 +37,12 @@ const DateTimeInfo = () => {
   };
   const day = current.getDate();
   const date = `${day}${nthNumber(day)}`;
-
+  const time =
+    current.getHours() +
+    ":" +
+    current.getMinutes() +
+    ":" +
+    current.getSeconds();
   const month = monthNames[current.getMonth()];
   const items = [
     {
@@ -64,8 +69,8 @@ const DateTimeInfo = () => {
     {
       id: 4,
       icon: <GoCalendar className='icon' />,
-      label: "gists",
-      value: year,
+      label: "login @",
+      value: time,
       color: "yellow",
     },
   ];
