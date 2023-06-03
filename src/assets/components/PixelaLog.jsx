@@ -1,4 +1,8 @@
+import { useAuth0 } from "@auth0/auth0-react";
+
 const PixelaLog = () => {
+  const { user } = useAuth0();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -19,7 +23,13 @@ const PixelaLog = () => {
             <label htmlFor='name' className='form-label'>
               identity
             </label>
-            <input type='text' className='form-input' id='name' name='name' />
+            <input
+              type='text'
+              className='form-input'
+              id='name'
+              name='name'
+              value={user.name}
+            />
           </div>
           {/* starOfDay */}
           <div className='form-row'>
@@ -46,7 +56,13 @@ const PixelaLog = () => {
             <label htmlFor='name' className='form-label'>
               identity
             </label>
-            <input type='text' className='form-input' id='name' name='name' />
+            <input
+              type='text'
+              className='form-input'
+              id='name'
+              name='name'
+              value={user.name}
+            />
           </div>
           {/* starOfDay */}
           <div className='form-row'>
