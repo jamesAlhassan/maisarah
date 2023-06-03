@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-
+import axios from "axios";
 const PixelaLog = () => {
   const { user } = useAuth0();
 
@@ -8,9 +8,27 @@ const PixelaLog = () => {
 
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData);
-    const { token, identity } = user;
-    console.log(token, identity);
+    const { token, name } = user;
+    console.log(token, name);
     e.currentTarget.reset();
+
+    const pixelaEndPoint = "https://pixe.la/v1/users";
+    const request = (token, username) => {
+      axios({
+        method: "post",
+        url: pixelaEndPoint,
+        data: {
+          token,
+          username,
+          agreeTermsOfService: "yes",
+          notMinor: "yes",
+        },
+      })
+        .then((res) => console.log(res.data.isSuccess))
+        .catch((err) => console.log(err.response.status));
+    };
+
+    request("demadema12345", "demadema");
   };
 
   return (
@@ -28,7 +46,8 @@ const PixelaLog = () => {
               className='form-input'
               id='name'
               name='name'
-              value={user.nickname}
+              defaultValue={user.nickname}
+              //   value={user.nickname}
             />
           </div>
 
@@ -75,7 +94,7 @@ const PixelaLog = () => {
               className='form-input'
               id='name'
               name='name'
-              value={user.nickname}
+              defaultValue={user.nickname}
             />
           </div>
           <div className='form-row'>
