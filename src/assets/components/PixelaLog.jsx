@@ -31,6 +31,20 @@ const PixelaLog = () => {
               value={user.name}
             />
           </div>
+
+          <div className='form-row'>
+            <label htmlFor='token' className='form-label'>
+              token- [-~]&#123;8,128&#125;
+            </label>
+            <input
+              type='text'
+              className='form-input'
+              id='token'
+              name='token'
+              required
+              pattern='[ -~]{8,128}'
+            />
+          </div>
           {/* starOfDay */}
           <div className='form-row'>
             <label htmlFor='startOfDay'>Start of Day</label>
@@ -56,15 +70,21 @@ const PixelaLog = () => {
             <label htmlFor='name' className='form-label'>
               identity
             </label>
+            <input type='text' className='form-input' id='name' name='name' />
+          </div>
+          <div className='form-row'>
+            <label htmlFor='token' className='form-label'>
+              token - [-~]&#123;8,128&#125;
+            </label>
             <input
               type='text'
               className='form-input'
-              id='name'
-              name='name'
-              value={user.name}
+              id='token'
+              name='token'
+              required
+              pattern='[ -~]{8,128}'
             />
           </div>
-          {/* starOfDay */}
           <div className='form-row'>
             <label htmlFor='endOfDay'>End of Day</label>
 
