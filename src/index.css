@@ -187,16 +187,20 @@ main {
 }
 
 /* form */
-
+.form-container {
+  display: flex;
+  gap: 2.5rem;
+}
 .form {
-  width: 90vw;
-  max-width: 600px;
+  display: inline-block;
+  width: 40vw;
+  max-width: 570px;
   background: var(--white);
   border-radius: 0.25rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   padding: 2rem 2.5rem;
-  margin: 3rem auto;
+  margin: 1rem auto;
 }
 
 .form-label {

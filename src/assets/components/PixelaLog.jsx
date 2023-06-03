@@ -11,39 +11,61 @@ const PixelaLog = () => {
 
   return (
     <div>
-      <form className='form' onSubmit={handleSubmit}>
-        <h2>pixela data log</h2>
-        {/* name */}
-        <div className='form-row'>
-          <label htmlFor='name' className='form-label'>
-            name
-          </label>
-          <input type='text' className='form-input' id='name' name='name' />
-        </div>
-        {/* email */}
-        <div className='form-row'>
-          <label htmlFor='email' className='form-label'>
-            Email
-          </label>
-          <input type='email' className='form-input' id='email' name='email' />
-        </div>
-        {/* email */}
-        <div className='form-row'>
-          <label htmlFor='password' className='form-label'>
-            Password
-          </label>
-          <input
-            type='password'
-            className='form-input'
-            id='password'
-            name='password'
-          />
-        </div>
+      <div className='form-container'>
+        <form className='form' onSubmit={handleSubmit}>
+          <h3>start of day log</h3>
+          {/* name */}
+          <div className='form-row'>
+            <label htmlFor='name' className='form-label'>
+              identity
+            </label>
+            <input type='text' className='form-input' id='name' name='name' />
+          </div>
+          {/* starOfDay */}
+          <div className='form-row'>
+            <label htmlFor='startOfDay'>Start of Day</label>
 
-        <button type='submit' className='btn btn-block'>
-          submit
-        </button>
-      </form>
+            <textarea
+              className='form-input'
+              id='startOfDay'
+              name='startOfDay'
+              rows='10'
+              cols='100'
+            ></textarea>
+          </div>
+
+          <button type='submit' className='btn btn-block'>
+            submit
+          </button>
+        </form>
+        {/* end of day */}
+        <form className='form' onSubmit={handleSubmit}>
+          <h3>end of day log</h3>
+          {/* name */}
+          <div className='form-row'>
+            <label htmlFor='name' className='form-label'>
+              identity
+            </label>
+            <input type='text' className='form-input' id='name' name='name' />
+          </div>
+          {/* starOfDay */}
+          <div className='form-row'>
+            <label htmlFor='endOfDay'>End of Day</label>
+
+            <textarea
+              className='form-input'
+              id='endOfDay'
+              name='endOfDay'
+              rows='10'
+              cols='100'
+            ></textarea>
+          </div>
+
+          <button type='submit' className='btn btn-block'>
+            submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
