@@ -187,13 +187,14 @@ main {
 }
 
 /* form */
-.form-container {
-  display: flex;
-  gap: 2.5rem;
+@media screen and (min-width: 600px) {
+  .form-container {
+    display: flex;
+    gap: 2.5rem;
+  }
 }
 .form {
-  display: inline-block;
-  width: 40vw;
+  width: 80vw;
   max-width: 570px;
   background: var(--white);
   border-radius: 0.25rem;
