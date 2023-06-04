@@ -7,7 +7,7 @@ let month = String(date.getMonth() + 1).padStart(2, "0");
 let year = date.getFullYear();
 let currentDate = `${year}${month}${day}`;
 
-const request = (tk, username) => {
+const pixelaRequest = (tk, username) => {
   axios({
     method: "post",
     url: pixelaEndPoint,
@@ -60,3 +60,4 @@ const request = (tk, username) => {
     })
     .catch((err) => console.log(err.response.status));
 };
+export default pixelaRequest;
