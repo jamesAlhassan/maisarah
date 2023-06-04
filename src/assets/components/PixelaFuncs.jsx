@@ -1,5 +1,11 @@
 const pixelaEndPoint = "https://pixe.la/v1/users";
+
 const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+let year = date.getFullYear();
+let currentDate = `${year}${month}${day}`;
 
 const request = (tk, username) => {
   axios({
@@ -34,11 +40,8 @@ const request = (tk, username) => {
                 method: "post",
                 url: `https://pixe.la/v1/users/${username}/graphs/graph1/`,
                 data: {
-                  id: "graph1",
-                  name: "Maisarah Attendance",
-                  unit: "commit",
-                  type: "int",
-                  color: "ajisai",
+                  date: `${currentDate}`,
+                  quantity: "5",
                 },
                 headers: {
                   "X-USER-TOKEN": tk,
