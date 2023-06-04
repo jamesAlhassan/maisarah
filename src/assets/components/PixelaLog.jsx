@@ -1,6 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
+import { useState } from "react";
 const PixelaLog = () => {
+  const [log, useLog] = useState("");
   const { user } = useAuth0();
 
   const handleSubmit = (e) => {
@@ -12,42 +14,7 @@ const PixelaLog = () => {
     console.log(token, name);
     e.currentTarget.reset();
 
-    const pixelaEndPoint = "https://pixe.la/v1/users";
-    const request = (tk, username) => {
-      axios({
-        method: "post",
-        url: pixelaEndPoint,
-        data: {
-          token: tk,
-          username,
-          agreeTermsOfService: "yes",
-          notMinor: "yes",
-        },
-      })
-        .then((res) => {
-          if (res.status === 200) {
-            axios({
-              method: "post",
-              url: `https://pixe.la/v1/users/${username}/graphs`,
-              data: {
-                id: "graph1",
-                name: "Maisarah Attendance",
-                unit: "commit",
-                type: "int",
-                color: "ajisai",
-              },
-              headers: {
-                "X-USER-TOKEN": tk,
-              },
-            }).then((res) => {
-              console.log(res.status);
-            });
-          }
-        })
-        .catch((err) => console.log(err.response.status));
-    };
-
-    request(token, name);
+    // request(token, name);
   };
 
   return (
