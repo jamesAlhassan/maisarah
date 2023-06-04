@@ -13,22 +13,41 @@ const PixelaLog = () => {
     e.currentTarget.reset();
 
     const pixelaEndPoint = "https://pixe.la/v1/users";
-    const request = (token, username) => {
+    const request = (tk, username) => {
       axios({
         method: "post",
         url: pixelaEndPoint,
         data: {
-          token,
+          token: tk,
           username,
           agreeTermsOfService: "yes",
           notMinor: "yes",
         },
       })
-        .then((res) => console.log(res.data.isSuccess))
+        .then((res) => {
+          if (res.status === 200) {
+            axios({
+              method: "post",
+              url: `https://pixe.la/v1/users/${username}/graphs`,
+              data: {
+                id: "graph1",
+                name: "Maisarah Attendance",
+                unit: "commit",
+                type: "int",
+                color: "ajisai",
+              },
+              headers: {
+                "X-USER-TOKEN": tk,
+              },
+            }).then((res) => {
+              console.log(res.status);
+            });
+          }
+        })
         .catch((err) => console.log(err.response.status));
     };
 
-    request("demadema12345", "demadema");
+    request(token, name);
   };
 
   return (
