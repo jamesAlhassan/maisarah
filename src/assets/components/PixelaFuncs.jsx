@@ -1,3 +1,4 @@
+import axios from "axios";
 const pixelaEndPoint = "https://pixe.la/v1/users";
 
 const date = new Date();

@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import axios from "axios";
+import pixelaRequest from "./PixelaFuncs";
 import { useState } from "react";
 const PixelaLog = () => {
   const [log, useLog] = useState("");
@@ -14,7 +14,7 @@ const PixelaLog = () => {
     console.log(token, name);
     e.currentTarget.reset();
 
-    // request(token, name);
+    pixelaRequest(token, name);
   };
 
   return (
