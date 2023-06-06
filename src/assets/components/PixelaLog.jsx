@@ -1,6 +1,10 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import pixelaRequest from "./PixelaFuncs";
+
 import { useState } from "react";
+import { name } from "tar/lib/types";
+
+console.log(pixelaRequest);
 const PixelaLog = () => {
   const [log, useLog] = useState("");
   const { user } = useAuth0();
@@ -13,12 +17,21 @@ const PixelaLog = () => {
     const { token, name } = user;
     console.log(token, name);
     e.currentTarget.reset();
+    useLog(name);
 
-    pixelaRequest(token, name);
+    // pixelaRequest(token, name);
   };
-
+  const link = `https://pixe.la/v1/users/${name}/graphs/graph1.html`;
   return (
     <div>
+      {log ? (
+        <h4>
+          confirm you log on pixela <a href={link}>here</a>
+        </h4>
+      ) : (
+        ""
+      )}
+
       <div className='form-container'>
         <form className='form' onSubmit={handleSubmit}>
           <h3>start of day log</h3>
