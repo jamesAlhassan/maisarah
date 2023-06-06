@@ -26,7 +26,10 @@ const PixelaLog = () => {
     <div>
       {log ? (
         <h4>
-          confirm you log on pixela <a href={link}>here</a>
+          confirm you log on pixela{" "}
+          <a href={link} target='_blank'>
+            here
+          </a>
         </h4>
       ) : (
         ""
