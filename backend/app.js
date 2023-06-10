@@ -18,8 +18,12 @@ app.get("/api/v1/users/:id", (req, res) => {
 });
 
 app.post("/api/v1/users", async (req, res) => {
-  const user = await User.create(req.body);
-  res.status(201).json({ user });
+  try {
+    const user = await User.create(req.body);
+    res.status(201).json({ user });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
 });
 const port = 3000;
 
