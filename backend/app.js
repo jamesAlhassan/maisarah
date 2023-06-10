@@ -7,8 +7,13 @@ require("dotenv").config();
 
 app.use(json());
 
-app.get("/api/v1/users", (req, res) => {
-  res.send("All users");
+app.get("/api/v1/users", async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.status(200).json({ users });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
 });
 
 app.get("/api/v1/users/:id", (req, res) => {
