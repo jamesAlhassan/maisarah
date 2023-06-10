@@ -5,6 +5,8 @@ const app = express();
 const dbConnect = require("./db/connect");
 require("dotenv").config();
 
+const port = process.env.PORT || 3000;
+
 app.use(json());
 
 app.get("/api/v1/users", async (req, res) => {
@@ -16,11 +18,11 @@ app.get("/api/v1/users", async (req, res) => {
   }
 });
 
-app.get("/api/v1/users/:id", (req, res) => {
-  res.json({
-    id: req.params.id,
-  });
-});
+// app.get("/api/v1/users/:id", (req, res) => {
+//   res.json({
+//     id: req.params.id,
+//   });
+// });
 
 app.post("/api/v1/users", async (req, res) => {
   try {
@@ -30,7 +32,6 @@ app.post("/api/v1/users", async (req, res) => {
     res.status(500).json({ msg: error });
   }
 });
-const port = 3000;
 
 const start = async () => {
   try {
