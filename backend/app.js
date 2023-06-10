@@ -1,3 +1,4 @@
+const User = require("./models/User");
 const { json } = require("express");
 const express = require("express");
 const app = express();
@@ -11,11 +12,14 @@ app.get("/api/v1/users", (req, res) => {
 });
 
 app.get("/api/v1/users/:id", (req, res) => {
-  res.send(" user");
+  res.json({
+    id: req.params.id,
+  });
 });
 
-app.post("/api/v1/users", (req, res) => {
-  res.send("post users");
+app.post("/api/v1/users", async (req, res) => {
+  const user = await User.create(req.body);
+  res.status(201).json({ user });
 });
 const port = 3000;
 
