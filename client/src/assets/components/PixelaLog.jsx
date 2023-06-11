@@ -4,7 +4,7 @@ import pixelaRequest from "./PixelaFuncs";
 import { useState } from "react";
 import { name } from "tar/lib/types";
 
-console.log(pixelaRequest);
+// console.log(pixelaRequest);
 const PixelaLog = () => {
   const [log, useLog] = useState("");
   const { user } = useAuth0();
@@ -15,7 +15,7 @@ const PixelaLog = () => {
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData);
     const { token, name } = user;
-    console.log(token, name);
+    // console.log(token, name);
     e.currentTarget.reset();
     useLog(name);
 

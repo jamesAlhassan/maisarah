@@ -4,10 +4,12 @@ const express = require("express");
 const app = express();
 const dbConnect = require("./db/connect");
 require("dotenv").config();
+const cors = require("cors");
 
 const port = process.env.PORT || 3000;
 
-app.use(json());
+app.use(express.json());
+app.use(cors());
 
 app.get("/api/v1/users", async (req, res) => {
   try {
@@ -18,11 +20,11 @@ app.get("/api/v1/users", async (req, res) => {
   }
 });
 
-// app.get("/api/v1/users/:id", (req, res) => {
-//   res.json({
-//     id: req.params.id,
-//   });
-// });
+app.get("/api/v1/users/:id", (req, res) => {
+  res.json({
+    id: req.params.id,
+  });
+});
 
 app.post("/api/v1/users", async (req, res) => {
   try {

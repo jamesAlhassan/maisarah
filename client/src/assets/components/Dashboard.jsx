@@ -3,6 +3,7 @@ import ChartComponent from "./ChartComponent";
 import Navbar from "./Navbar";
 import PixelaLog from "./PixelaLog";
 import styled from "styled-components";
+
 const Dashboard = () => {
   return (
     <div>
