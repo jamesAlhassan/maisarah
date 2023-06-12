@@ -11,17 +11,6 @@ import axios from "axios";
 // axios.get("api/v1/users").then((resp) => {
 //   console.log(resp.data);
 // });
-fetch("http://127.0.0.1:3000/api/v1/users")
-  .then((res) => res.json())
-  .then((data) =>
-    data.users.map((item) => {
-      if (Object.values(item).includes("test")) {
-        console.log("value exists");
-      } else {
-        console.log("no");
-      }
-    })
-  );
 
 const App = () => {
   return (

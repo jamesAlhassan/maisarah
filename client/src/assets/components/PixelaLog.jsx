@@ -1,30 +1,43 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import pixelaRequest from "./PixelaFuncs";
+
+import { pixelaOldUser, pixelaNewUser } from "./PixelaFuncs";
 
 import { useState } from "react";
 import { name } from "tar/lib/types";
 
-// console.log(pixelaRequest);
 const PixelaLog = () => {
-  const [log, useLog] = useState("");
+  const [logs, useLogs] = useState("");
   const { user } = useAuth0();
-
-  const handleSubmit = (e) => {
+  const handleLog = (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData);
-    const { token, name } = user;
-    // console.log(token, name);
-    e.currentTarget.reset();
-    useLog(name);
+    const { token, name, log } = user;
+    alert(`https://pixe.la/v1/users/${name}/graphs/graph1.html`);
 
-    // pixelaRequest(token, name);
+    e.currentTarget.reset();
+    useLogs(name);
+    pixelaOldUser(name, token, log);
+  };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const user = Object.fromEntries(formData);
+    const { token, name, log } = user;
+    console.log(name, token, log);
+    alert(`https://pixe.la/v1/users/${name}/graphs/graph1.html`);
+    e.currentTarget.reset();
+    useLogs(name);
+    pixelaNewUser(name, token, log);
   };
   const link = `https://pixe.la/v1/users/${name}/graphs/graph1.html`;
+
   return (
     <div>
-      {log ? (
+      {logs ? (
         <h4>
           confirm you log on pixela{" "}
           <a href={link} target='_blank'>
@@ -36,7 +49,7 @@ const PixelaLog = () => {
       )}
 
       <div className='form-container'>
-        <form className='form' onSubmit={handleSubmit}>
+        <form className='form' onSubmit={handleRegister}>
           <h3>start of day log</h3>
           {/* name */}
           <div className='form-row'>
@@ -68,12 +81,12 @@ const PixelaLog = () => {
           </div>
           {/* starOfDay */}
           <div className='form-row'>
-            <label htmlFor='startOfDay'>Start of Day</label>
+            <label htmlFor='log'>Start of Day</label>
 
             <textarea
               className='form-input'
-              id='startOfDay'
-              name='startOfDay'
+              id='log'
+              name='log'
               rows='10'
               cols='100'
             ></textarea>
@@ -84,7 +97,7 @@ const PixelaLog = () => {
           </button>
         </form>
         {/* end of day */}
-        <form className='form' onSubmit={handleSubmit}>
+        <form className='form' onSubmit={handleLog}>
           <h3>end of day log</h3>
           {/* name */}
           <div className='form-row'>
@@ -113,12 +126,12 @@ const PixelaLog = () => {
             />
           </div>
           <div className='form-row'>
-            <label htmlFor='endOfDay'>End of Day</label>
+            <label htmlFor='log'>End of Day</label>
 
             <textarea
               className='form-input'
-              id='endOfDay'
-              name='endOfDay'
+              id='log'
+              name='log'
               rows='10'
               cols='100'
             ></textarea>
