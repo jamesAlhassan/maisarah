@@ -1,13 +1,14 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
 import userLog from "./PixelaFuncs";
-
+import preloader from "../images/preloader.gif";
 import { useState } from "react";
 import { name } from "tar/lib/types";
 
 const PixelaLog = () => {
   const [logs, useLogs] = useState("");
   const [link, setLink] = useState("");
+  const [isAccept, setIsAccept] = useState(false);
   const { user } = useAuth0();
   const handleLog = (e) => {
     e.preventDefault();
@@ -95,54 +96,58 @@ const PixelaLog = () => {
           </div>
 
           <button type='submit' className='btn btn-block'>
-            submit
+            accept
           </button>
         </form>
         {/* end of day */}
-        <form className='form' onSubmit={handleLog}>
-          <h3>log on pixela</h3>
-          {/* name */}
-          <div className='form-row'>
-            <label htmlFor='name' className='form-label'>
-              identity
-            </label>
-            <input
-              type='text'
-              className='form-input'
-              id='name'
-              name='name'
-              defaultValue={user.nickname}
-            />
-          </div>
-          <div className='form-row'>
-            <label htmlFor='token' className='form-label'>
-              token - [-~]&#123;8,128&#125;
-            </label>
-            <input
-              type='text'
-              className='form-input'
-              id='token'
-              name='token'
-              required
-              pattern='[ -~]{8,128}'
-            />
-          </div>
-          <div className='form-row'>
-            <label htmlFor='log'>End of Day</label>
+        {isAccept ? (
+          <form className='form' onSubmit={handleLog}>
+            <h3>log on pixela</h3>
+            {/* name */}
+            <div className='form-row'>
+              <label htmlFor='name' className='form-label'>
+                identity
+              </label>
+              <input
+                type='text'
+                className='form-input'
+                id='name'
+                name='name'
+                defaultValue={user.nickname}
+              />
+            </div>
+            <div className='form-row'>
+              <label htmlFor='token' className='form-label'>
+                token - [-~]&#123;8,128&#125;
+              </label>
+              <input
+                type='text'
+                className='form-input'
+                id='token'
+                name='token'
+                required
+                pattern='[ -~]{8,128}'
+              />
+            </div>
+            <div className='form-row'>
+              <label htmlFor='log'>End of Day</label>
 
-            <textarea
-              className='form-input'
-              id='log'
-              name='log'
-              rows='10'
-              cols='100'
-            ></textarea>
-          </div>
+              <textarea
+                className='form-input'
+                id='log'
+                name='log'
+                rows='10'
+                cols='100'
+              ></textarea>
+            </div>
 
-          <button type='submit' className='btn btn-block'>
-            submit
-          </button>
-        </form>
+            <button type='submit' className='btn btn-block'>
+              submit
+            </button>
+          </form>
+        ) : (
+          <img src={preloader}></img>
+        )}
       </div>
     </div>
   );
