@@ -20,7 +20,19 @@ app.get("/api/v1/users", async (req, res) => {
   }
 });
 
-app.get("/api/v1/users/:id", (req, res) => {
+app.get("/api/v1/users/:name", async (req, res) => {
+  try {
+    const { name } = req.params;
+    const user = await User.findOne({ name: name });
+
+    if (!user) {
+      return res.status(404).json({ msg: `${name} does not exist` });
+    }
+    res.status(200).json({ user });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
+
   res.json({
     id: req.params.id,
   });
