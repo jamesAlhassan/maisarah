@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
-import { pixelaOldUser, pixelaNewUser } from "./PixelaFuncs";
+import userLog from "./PixelaFuncs";
 
 import { useState } from "react";
 import { name } from "tar/lib/types";
@@ -16,28 +16,26 @@ const PixelaLog = () => {
     const user = Object.fromEntries(formData);
     const { token, name, log } = user;
     setLink(
-      (prevStat) =>
-        (prevStat = `https://pixe.la/v1/users/${name}/graphs/graph1.html`)
+      (prevState) =>
+        (prevState = `https://pixe.la/v1/users/${name}/graphs/graph1.html`)
     );
-    alert(`https://pixe.la/v1/users/${name}/graphs/graph1.html`);
 
     e.currentTarget.reset();
     useLogs(name);
-    pixelaOldUser(name, token, log);
+    userLog(name, token, log);
   };
 
-  const handleRegister = (e) => {
-    e.preventDefault();
+  //   const handleRegister = (e) => {
+  //     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
-    const user = Object.fromEntries(formData);
-    const { token, name, log } = user;
-    console.log(name, token, log);
-    alert(`https://pixe.la/v1/users/${name}/graphs/graph1.html`);
-    e.currentTarget.reset();
-    useLogs(name);
-    pixelaNewUser(name, token, log);
-  };
+  //     const formData = new FormData(e.currentTarget);
+  //     const user = Object.fromEntries(formData);
+  //     const { token, name, log } = user;
+
+  //     e.currentTarget.reset();
+  //     useLogs(name);
+  //     userLog(name, token, log);
+  //   };
 
   return (
     <div>
@@ -53,9 +51,8 @@ const PixelaLog = () => {
       )}
 
       <div className='form-container'>
-        <form className='form' onSubmit={handleRegister}>
-          <h5>New user?</h5>
-          <h3>Register on Pixela</h3>
+        <form className='form'>
+          <h3>allocated task for today</h3>
           {/* name */}
           <div className='form-row'>
             <label htmlFor='name' className='form-label'>
@@ -85,7 +82,7 @@ const PixelaLog = () => {
             />
           </div>
           {/* starOfDay */}
-          {/* <div className='form-row'>
+          <div className='form-row'>
             <label htmlFor='log'>Start of Day</label>
 
             <textarea
@@ -95,17 +92,8 @@ const PixelaLog = () => {
               rows='10'
               cols='100'
             ></textarea>
-          </div> */}
-          <p>
-            Register on Pixela and start tracking your attendance.
-            <br />
-            <br />
-            <br />
-            <br />
-            You can use your populated username/ identity or enter a new one
-            <br />
-            And a token to register
-          </p>
+          </div>
+
           <button type='submit' className='btn btn-block'>
             submit
           </button>
