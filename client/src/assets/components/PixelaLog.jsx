@@ -1,17 +1,17 @@
+import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import userLog from "./PixelaFuncs";
 import accept_reject from "../images/accept_reject.gif";
-import { useState } from "react";
-// import { name } from "tar/lib/types";
 
 const PixelaLog = () => {
   const [logs, useLogs] = useState("");
   const [link, setLink] = useState("");
   const [isAccept, setIsAccept] = useState(false);
   const { user } = useAuth0();
+
   const handleLog = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData);
